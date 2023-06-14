@@ -24,12 +24,17 @@ def scape_data(request):
     driver.get(url)
 
     courtSelectElement =  driver.find_element(by=By.ID, value='ListCA')
+    txtNumDC_Numero = driver.find_element(by=By.ID, value='txtNumDC_Numero')
+    txtNumDC_Numero.clear()
+    txtNumDC_Numero.send_keys('1234')
+    print(txtNumDC_Numero.text)
     courtSelect = Select(courtSelectElement)
-    courtSelect.select_by_value('18')
+    
     data = {
-        'isSelected':'',
-        'title':driver.title,
-        'court':str(courtSelect.options),
+        'data': {
+            'txtNumDC_Numero':txtNumDC_Numero.text,
+            'court':str(courtSelect.options),
+        },
         'message': 'Scrapping completed successfully!'
 
     }
