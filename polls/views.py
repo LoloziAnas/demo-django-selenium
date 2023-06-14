@@ -28,6 +28,7 @@ def scape_data(request):
     txtNumDC_Numero.clear()
     txtNumDC_Numero.send_keys('1234')
     print(txtNumDC_Numero.text)
+    
     courtSelect = Select(courtSelectElement)
     
     data = {
